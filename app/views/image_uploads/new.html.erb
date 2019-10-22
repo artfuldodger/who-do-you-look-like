@@ -1,5 +1,19 @@
+<div class="wrapper">
+<h1>What celebrity do you look like?</h1>
+
+<p>Upload a picture of your face to find out!</p>
 <%= form_for @image_upload do |f| %>
   <%= f.file_field :image %>
 
   <%= f.submit %>
 <% end %>
+
+  <div class="result-spectrum">
+    <div class="user"></div>
+    <div class="user-25"></div>
+    <div class="user-50"></div>
+    <div class="user-75"></div>
+    <%= image_tag asset_path("shrek.jpg"), class:"result" %>
+  </div>
+
+</div>
