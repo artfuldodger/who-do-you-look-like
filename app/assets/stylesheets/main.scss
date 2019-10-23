@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+$white: #fff;
+$black: #0f0f1a;
+$purple: #9403c4;
+$orange: #c45903;
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  min-height: 100vh;
+  color: $white;
+  background: $black;
+  font-family: 'Muli', sans-serif;
+  font-size: 24px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1em; }
+
+a {
+  color: $orange;
+}
+
+input[type="submit"], input::-webkit-file-upload-button {
+  padding: 24px 32px;
+  color: $white;
+  font-size: 18px;
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+  background: $purple;
+  box-shadow: 0 4px 0 darken($purple, 10), 0 8px 20px rgba($black, 0.25);
+  border: 0;
+  border-radius: 60px;
+  outline: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: lighten(purple, 10);
+  }
+}
+
+input::-webkit-file-upload-button {
+  &:after {
+  }
+}
+
+input[type="file"] {
+  max-width: 420px;
+  text-align: center;
+  padding: 1em;
+  font-size: 1em;
+  border: 2px solid rgba($black, 0.25);
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+
+  label {
+    color: red;
+  }
+
+  &:hover {
+    border-color: $black;
+
+    &::-webkit-file-upload-button {
+      background: lighten(purple, 10);
+    }
+  }
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  @include clearfix;
+}
+
+header {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  text-align: center;
+  background: #000;
+  transform: translate3d(0, 0, 0);
+
+  &.minimal {
+    height: 200px;
+    font-size: 14px;
+
+    .banner {
+      animation: none;
+    }
+  }
+
+  *:not(img) {
+    position: relative;
+    z-index: 3;
+  }
+
+  .header-content {
+    align-self: center;
+    text-shadow: $black 0 2px 8px;
+  }
+
+  .page-title {}
+
+  h1 {
+    color: $white;
+  }
+
+  .banner {
+    position: absolute;
+    width: 3220px;
+    height: 420px;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transform: translateX(0);
+    opacity: 0.5;
+    background: url(banner.jpg) 0;
+    background-size: cover;
+    transform: translate3d(0, 0, 0);
+    animation: bannerSlide 30s linear infinite;
+  }
+
+  @keyframes bannerSlide {
+    0%   { background-position: 0 0; }
+    100% { background-position: -3220px 0; }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    background: linear-gradient(rgba($black, 0), $black);
+  }
+}
+
+.upload-form {
+  margin-top: 2em;
+  text-align: center;
+
+  form {
+    max-width: 640px;
+    margin: 1em auto 0 auto;
+    padding: 2em;
+    color: $black;
+    background: $white;
+    border-radius: 8px;
+
+    input[type="submit"] {
+      display: block;
+      margin: 2em auto 0 auto;
+    }
+  }
+}
+
+.results {
+  margin-top: 2em;
+  opacity: 0;
+  animation: fadeIn 2s 1s ease-in forwards;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.result-spectrum {
+  float: left;
+  margin: 1em auto 0 auto;
+  padding: 0;
+
+  li {
+    float: left;
+    display: inline-block;
+    margin: 0;
+    padding-top: 0;
+    width: 25%;
+    height: 300px;
+    list-style: none;
+    overflow: hidden;
+    background-image: url(asset-path("shrek.jpg"));
+    background-size: cover;
+
+    .upload {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &.user-66 .upload { opacity: 0.66; }
+    &.user-33 .upload { opacity: 0.33; }
+  }
+}
+
+.loader {
+  position: relative;
+  margin: 0 auto;
+  top: 200px;
+  border: 16px solid $white;
+  border-top: 16px solid $orange;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite, fadeOut 0.25s 1s linear forwards;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 100%; height: auto; }
+  99%  { opacity: 0; }
+  100% { transform: translateY(-9999999px); height: 0; }
+}
+
+footer {
+  clear: both;
+  position: relative;
+  max-width: 640px;
+  margin: 3em auto 0 auto;
+  text-align: center;
+}

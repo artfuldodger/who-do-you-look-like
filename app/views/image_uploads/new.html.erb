@@ -1,19 +1,19 @@
-<div class="wrapper">
-<h1>What celebrity do you look like?</h1>
-
-<p>Upload a picture of your face to find out!</p>
-<%= form_for @image_upload do |f| %>
-  <%= f.file_field :image %>
-
-  <%= f.submit %>
-<% end %>
-
-  <div class="result-spectrum">
-    <div class="user"></div>
-    <div class="user-25"></div>
-    <div class="user-50"></div>
-    <div class="user-75"></div>
-    <%= image_tag asset_path("shrek.jpg"), class:"result" %>
+<header>
+  <div class="banner"></div>
+  <div class="header-content wrapper">
+    <p class="page-title">📸 Celebrity Facial Analysis 2.0</p>
+    <h1>What celebrity do you look like?</h1>
   </div>
+</header>
 
+<div class="wrapper upload-form">
+  <p>Upload a picture of your face to find out!</p>
+  <%= form_for @image_upload do |f| %>
+    <%= f.file_field :image %>
+    <%= f.submit "Submit my picture" %>
+  <% end %>
 </div>
+
+<footer>
+  <p>Created by <a href="https://twitter.com/jon_evans" target="_blank">Jon Evans</a> &amp; <a href="https://twitter.com/doodlemarks" target="_blank">Mark Peck</a>.</p>
+</footer>

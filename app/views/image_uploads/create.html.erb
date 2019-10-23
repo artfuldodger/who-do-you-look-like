@@ -1,3 +1,25 @@
-<h1>lol u lewk like shrek</h1>
+<header class="minimal">
+  <div class="banner"></div>
+  <div class="header-content wrapper">
+    <p class="page-title">📸 Celebrity Facial Analysis 2.0</p>
+    <h1>What celebrity do you look like?</h1>
+  </div>
+</header>
 
-<img src="<%= @image_upload.publicify %>">
+<div class="loader"></div>
+
+<div class="wrapper results">
+
+  <h2>lmao, you look like shrek!</h2>
+
+  <ul class="result-spectrum">
+    <li class="user"><img src="<%= @image_upload.publicify %>" class="upload"></li>
+    <li class="user-66"><img src="<%= @image_upload.publicify %>" class="upload"></li>
+    <li class="user-33"><img src="<%= @image_upload.publicify %>" class="upload"></li>
+    <li class="result"></li>
+  </ul>
+</div>
+
+<footer>
+  <p>Created by <a href="https://twitter.com/jon_evans" target="_blank">Jon Evans</a> &amp; <a href="https://twitter.com/doodlemarks" target="_blank">Mark Peck</a>.</p>
+</footer>
