@@ -135,7 +135,7 @@ header {
     z-index: 1;
     transform: translateX(0);
     opacity: 0.5;
-    background: url(banner.jpg) 0;
+    background: image_url('banner.jpg') 0;
     background-size: cover;
     transform: translate3d(0, 0, 0);
     animation: bannerSlide 30s linear infinite;
